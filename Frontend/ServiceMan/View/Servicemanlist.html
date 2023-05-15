@@ -11,6 +11,17 @@
 			
 			});
 		});
+		app.controller('logoutCtrl',function($scope,$http){
+			$scope.load=function(){
+				//alert("OK");
+				$http.post("https://localhost:44358/api/logout").then(function(resp){
+					window.location.href = "../../login.html"
+				},function(err){
+					$scope.msg = err.data.Msg;
+				});
+			};
+			
+		});
 		
 	</script>
 
@@ -164,11 +175,11 @@
     <header class="header">
             <a href="#" class="logo"><img src="Images/mollafuel.png" alt=""></a>
             <nav class="nav-items">
-           <a href="ServicemanDashboard.html">Dashboard</a>
+            <a href="ServicemanDashboard.html">Dashboard</a>
             <a href="profile.html">Profile</a>
             <a href="orderlist.html">Order List</a>
-           <a href="servicehistory.html">Service History</a>
-            <a href="#">Settings</a>
+          <a href="servicehistory.html">Service History</a>
+           <a href="settings.html">Help</a>
 			<a href="Servicemanlist.html">ServicemanList</a>
            
             </nav>

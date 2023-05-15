@@ -1,19 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<script>
-app.controller('logoutCtrl',function($scope,$http){
-			$scope.load=function(){
-				//alert("OK");
-				$http.post("https://localhost:44358/api/logout").then(function(resp){
-					window.location.href = "../../login.html"
-				},function(err){
-					$scope.msg = err.data.Msg;
-				});
-			};
-			
-		});
-		</script>
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -76,7 +62,7 @@ app.controller('logoutCtrl',function($scope,$http){
       align-items: center;
       width: 100%;
       height: 620px;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("Images/bg.jpg");
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("Images/bakground.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -155,49 +141,41 @@ app.controller('logoutCtrl',function($scope,$http){
       color: #96aead;
       padding: 10px 20px;
     }
+	
 
     
   </style>
 </head>
 
 <body>
-   <header class="header">
+    <header class="header">
             <a href="#" class="logo"><img src="Images/mollafuel.png" alt=""></a>
             <nav class="nav-items">
             <a href="ServicemanDashboard.html">Dashboard</a>
             <a href="profile.html">Profile</a>
             <a href="orderlist.html">Order List</a>
           <a href="servicehistory.html">Service History</a>
-             <a href="settings.html">Help</a>
+     <a href="settings.html">Help</a>
 			<a href="Servicemanlist.html">ServicemanList</a>
-           
+            
             </nav>
     </header>
-    <main>
-        <div class="intro">
-            <h1>Hi,Welcome back </h1>
-            <p>No more waiting in line at the gas station – just sit back and let us handle it!</p>
-           
-        </div>
-        
-    </main>
-    <footer class="footer">
-        <div class="copy">Molla fuel and Car Service &copy; 2022 Developer</div>
-        <div class="bottom-links">
-            <div class="links">
-                <span>More Info</span>
-               
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-            </div>
-            <div class="links">
-                <span>Social Links</span>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </footer>
-</body>
-
+<body >
+	<h1><b>MOLLA CAR FUEL SERVICE Contacts & Mails :<b></h1>
+  
+      
+		<h2>Admin panel Head</h2>
+		<h4><i>MD.NADIM HASAN<i></h4>
+		<h4>01704909205</h4>
+		<h2>Customer Controller Head</h2>
+		<h4>MD.KHURSHED ALAM SHIFAT</h4>
+		<h4>01704909205</h4>
+		<h2>ServiceMan Controller Head</h2>
+		<h4>MD.ABDUL HAMID</h4>
+		<h4>01704909205</h4>
+		<h2>DeliveryMan Controller Head</h2>
+		<h4>MD.MOSTAFA MASUD SHAFI</h4>
+		<h4>01704909205</h4>
+		</body >
+  
 </html>

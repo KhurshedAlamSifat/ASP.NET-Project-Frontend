@@ -11,6 +11,28 @@
 			
 			});
 		});
+		app.controller('rejectcntrl',function($scope,$http){
+			$scope.load=function(){
+				//alert("OK");
+				$http.post("https://localhost:44358/api/orderlist/1/delete").then(function(resp){
+					window.location.href = "orderlist.html"
+				},function(err){
+					$scope.msg = err.data.Msg;
+				});
+			};
+			
+		});
+		app.controller('acceptcntrl',function($scope,$http){
+			$scope.load=function(){
+				//alert("OK");
+				$http.post("https://localhost:44358/api/servicehistory/2/delete").then(function(resp){
+					window.location.href = "orderlist.html"
+				},function(err){
+					$scope.msg = err.data.Msg;
+				});
+			};
+			
+		});
 		
 	</script>
 
@@ -175,14 +197,14 @@
 </head>
 
 <body>
-    <header class="header">
+   <header class="header">
             <a href="#" class="logo"><img src="Images/mollafuel.png" alt=""></a>
             <nav class="nav-items">
             <a href="ServicemanDashboard.html">Dashboard</a>
             <a href="profile.html">Profile</a>
             <a href="orderlist.html">Order List</a>
-            <a href="servicehistory.html">Service History</a>
-            <a href="#">Settings</a>
+          <a href="servicehistory.html">Service History</a>
+            <a href="settings.html">Help</a>
 			<a href="Servicemanlist.html">ServicemanList</a>
             
             </nav>
@@ -205,8 +227,11 @@
 					<td>{{p.OrderFor}}</td>
 					<td>{{p.OrderTime}}</td>
 					<td>{{p.Quantity}}</td>
-					<td><a href="/Order/Place" class="button button1">Message</a></td>
-			        <td><a href="/Order/Place" class="button button2">Track location</a></td>
+					<td><div ng-controller="rejectcntrl">
+    <input type="submit"class="button button2" value="Accept" ng-click="load()">
+	</div></td>
+	
+			        
 	
 
 					
