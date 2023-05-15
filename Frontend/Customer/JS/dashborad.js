@@ -1,41 +1,38 @@
-// Graph
-var ctx = document.getElementById("myChart");
+var app = angular.module("my-app",[]);
+    app.factory('interceptor',[function(){
+			var interceptor = {
+				request:function(config){
+					config.headers.Authorization = localStorage.getItem("tkey");
+					return config;
+				},
+				response:function(response){
+					return response;
+				}
+			};
+			return interceptor;
+		}]);
+		
+		app.config(function($httpProvider){
+			$httpProvider.interceptors.push('interceptor');
+		});
+		app.controller('CustomerCtrl',function($scope,$http){
+			$http.get("https://localhost:44358/api/customers/"+localStorage.getItem("user")).then(function(resp){
+			debugger;
+				$scope.customer = resp.data;
+			},
+			function(err){
+			debugger;
+			});
+		});
 
-var myChart = new Chart(ctx, {
-  type: "line",
-  data: {
-    labels: [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ],
-    datasets: [
-      {
-        data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
-        lineTension: 0,
-        backgroundColor: "transparent",
-        borderColor: "#007bff",
-        borderWidth: 4,
-        pointBackgroundColor: "#007bff",
-      },
-    ],
-  },
-  options: {
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: false,
-          },
-        },
-      ],
-    },
-    legend: {
-      display: false,
-    },
-  },
-});
+      app.controller('logoutCtrl',function($scope,$http){
+			$scope.load=function(){
+				//alert("OK");
+				$http.post("https://localhost:44358/api/logout").then(function(resp){
+					window.location.href = "../../login.html"
+				},function(err){
+					$scope.msg = err.data.Msg;
+				});
+			};
+			
+		});
