@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../CSS/style.css">
+  
+</head>
+<body ng-app="my-app">
+
+	<header class="header" ng-controller="logoutCtrl">
+		<a href="#" class="logo"><img src="../../Images/mollafuel.png" alt=""></a>
+		<nav class="nav-items">
+		<a href="dashboard.html" >Dashboard</a>
+		<a href="profile.html">Profile</a>
+		<a href="editprofile.html">Edit Profile</a>
+		<a class="active" href="">Order Fuel</a>
+		<a href="p">Order Product</a>
+		<a href="#">Contact Serviceman</a>
+		<input type="submit" value="Logout" ng-click="load()">
+		</nav>
+	</header>
+    <main>
+        <div ng-controller="FuelOrderCtrl">
+            <table border="1" class="profiletable" >
+                <tr>
+                    <th><h4>Fuels</h3></th>
+                    <th><h4>Order Date</h4></th>
+                    <th><h4>Price</h4></th>
+                </tr>
+                <tr ng-repeat="f in fuelorder">
+                    <td><h3>{{f.FuelType}}</h3></td>
+                    <td><h3>{{f.FOrderDate}}</h3></td>
+                    <td><h3>{{f.TotalPrice}}</h3></td>
+                </tr>
+            </table>
+        </div>
+    </main>
+</body>
+<script src="../JS/dashborad.js"></script>
+</html>

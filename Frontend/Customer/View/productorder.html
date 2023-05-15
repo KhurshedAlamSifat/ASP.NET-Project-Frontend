@@ -17,40 +17,26 @@
 		<a href="#" class="logo"><img src="../../Images/mollafuel.png" alt=""></a>
 		<nav class="nav-items">
 		<a href="dashboard.html" >Dashboard</a>
-		<a class="active" href="#">Profile</a>
+		<a href="profile.html">Profile</a>
 		<a href="editprofile.html">Edit Profile</a>
 		<a href="fuelorder.html">Order Fuel</a>
-		<a href="productorder.html">Order Product</a>
+		<a class="active" href="#">Order Product</a>
 		<a href="#">Contact Serviceman</a>
 		<input type="submit" value="Logout" ng-click="load()">
 		</nav>
 	</header>
     <main>
-        <div ng-controller="CustomerCtrl">
-            <table border="1" class="profiletable">
+        <div ng-controller="ProductCtrl">
+            <table border="1" class="profiletable" >
                 <tr>
-                    <td><h3> Name: </h3></td>
-                    <td><h3>{{customer.Name}}</h3></td>
+                    <th><h4>Product</h3></th>
+                    <th><h4>Description</h4></th>
+                    <th><h4>Price</h4></th>
                 </tr>
-                <tr>
-                    <td><h3> Email: </h3></td>
-                    <td><h3>{{customer.Email}}</h3></td>
-                </tr>
-                <tr>
-                    <td><h3> Gender: </h3></td>
-                    <td><h3>{{customer.Gender}}</h3></td>
-                </tr>
-                <tr>
-                    <td><h3> Date of birth: </h3></td>
-                    <td><h3>{{customer.Dob | date:'yyyy-MM-dd'}}</h3></td>
-                </tr>
-                <tr>
-                    <td><h3> Phone no: </h3></td>
-                    <td><h3>{{customer.Phone}}</h3></td>
-                </tr>
-                <tr>
-                    <td><h3> Location: </h3></td>
-                    <td><h3>{{customer.Location}}</h3></td>
+                <tr ng-repeat="p in product">
+                    <td><h3>{{p.ProductName}}</h3></td>
+                    <td><h3>{{p.Description}}</h3></td>
+                    <td><h3>{{p.Price}}</h3></td>
                 </tr>
             </table>
         </div>

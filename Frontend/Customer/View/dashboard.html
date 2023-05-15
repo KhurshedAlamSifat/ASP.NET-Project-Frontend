@@ -13,22 +13,21 @@
 <body ng-app="my-app">
 
 	<header class="header" ng-controller="logoutCtrl">
-		<a href="#" class="logo"><img src="../../Images/mollafuel.png" alt=""></a>
-		<nav class="nav-items">
+		
+		<a href="#" class="logo"><img src="../../Images/mollafuel.png" alt=""></a>		<nav class="nav-items">
+		
 		<a class="active" href="#" >Dashboard</a>
 		<a href="profile.html">Profile</a>
 		<a href="editprofile.html">Edit Profile</a>
-		<a href="#">Order Fuel</a>
-		<a href="#">Order Product</a>
+		<a href="fuelorder.html">Order Fuel</a>
+		<a href="productorder.html">Order Product</a>
 		<a href="#">Contact Serviceman</a>
 		<input type="submit" value="Logout" ng-click="load()">
 		</nav>
 	</header>
   <main ng-controller="CustomerCtrl">
-	
-      <h2>User : {{customer.Username}}</h2>
-			<p>Name : {{customer.Name}}</p>
-			<b>Location: {{customer.Location}}</b>
+	<h3>Hi {{customer.Name}} !</h3>
+	<h4>Your username is {{customer.Username}}</h4>
   </main>
 </body>
 <script src="../JS/dashborad.js"></script>

@@ -73,8 +73,11 @@ main{
   width: 70%;
 }
 #btn{
-  align-items: end;
   color: #ddd;
   background-color: #237e61;
   border: #237e61;
+  display:flex; 
+  margin-left: 980px; 
+  height: 35px;
+  width: 100px;
 }

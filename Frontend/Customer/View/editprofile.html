@@ -19,23 +19,23 @@
 		<a href="dashboard.html" >Dashboard</a>
 		<a href="profile.html">Profile</a>
 		<a class="active" href="#">Edit Profile</a>
-		<a href="#">Order Fuel</a>
-		<a href="#">Order Product</a>
+		<a href="fuelorder.html">Order Fuel</a>
+		<a href="productorder.html">Order Product</a>
 		<a href="#">Contact Serviceman</a>
 		<input type="submit" value="Logout" ng-click="load()">
 		</nav>
 	</header>
     <main>
-        <div ng-controller="CustomerCtrl">
+        <div ng-controller="UpdateCtrl">
             <form ng-submit="Update()">
                 <table border="1" class="profiletable">
                     <tr>
                         <td><h3> Name: </h3></td>
-                        <td><input type="text" ng-model="s.Username" placeholder="{{customer.Name}}" required ></td>
+                        <td><input type="text" ng-model="s.Name"></td>
                     </tr>
                     <tr>
                         <td><h3> Email: </h3></td>
-                        <td><input type="text" ng-model="s.Email" placeholder="{{customer.Email}}" required ></td>
+                        <td><input type="text" ng-model="s.Email" ></td>
                     </tr>
                     <tr>
                         <td><h3> Gender: </h3></td>
@@ -48,15 +48,15 @@
                     </tr>
                     <tr>
                         <td><h3> Date of birth: </h3></td>
-                        <td><input type="date" ng-model="s.Dob" placeholder="{{customer.Dob | date:'yyyy-MM-dd'}}" required ></td>
+                        <td><input type="date" ng-model="s.Dob" ></td>
                     </tr>
                     <tr>
                         <td><h3> Phone no: </h3></td>
-                        <td><input type="text" ng-model="s.Phone" placeholder="{{customer.Phone}}" required ></td>
+                        <td><input type="text" ng-model="s.Phone"></td>
                     </tr>
                     <tr>
                         <td><h3> Location: </h3></td>
-                        <td><input type="text" ng-model="s.Location" placeholder="{{customer.Location}}" required ></td>
+                        <td><input type="text" ng-model="s.Location"></td>
                     </tr>
                 </table>
                 <input type="submit" id="btn" value="Update">
