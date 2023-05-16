@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Maps API with AngularJS</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <style>
+    #map {
+      height: 500px;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAijX5B67McVo3eYpgO20mURCiMic-5_H0"></script>
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $http) {
+      var map;
+
+      // initialize the map
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 23.8103, lng: 90.4125},
+          zoom: 8
+        });
+
+        // Retrieve the location data from the API
+        $http.get('https://localhost:44358/api/location').then(function(response) {
+          var locations = response.data;
+
+          // Add markers to the map
+          for (var i = 0; i < locations.length; i++) {
+            var marker = new google.maps.Marker({
+              position: {lat: locations[i].latitude, lng: locations[i].longitude},
+              map: map,
+              title: locations[i].username
+            });
+          }
+        });
+      }
+
+      // Initialize the map when the controller loads
+      initMap();
+    });
+  </script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+  <div id="map"></div>
+</body>
+</html>
