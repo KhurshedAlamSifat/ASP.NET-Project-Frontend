@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../CSS/style.css">
+  
+  <script>
+    // Create the AngularJS app
+    var app = angular.module('my-app', []);
+
+    // Define the AngularJS controller
+    app.controller('AdminCtrl', function ($scope, $http) {
+      $scope.admin = {
+        username: '',
+        name: '',
+        email: '',
+        password: ''
+      };
+
+      $scope.updateAdmin = function () {
+        // Make the API call to update the admin
+        $http({
+          method: 'POST',
+          url: 'https://localhost:44358/api/admins/' + $scope.admin.username + '/update',
+          data: $scope.admin
+        }).then(function successCallback(response) {
+          // Update was successful
+          console.log('Admin updated:', response.data);
+        }, function errorCallback(response) {
+          // Update failed
+          console.error('Error updating admin:', response.data);
+        });
+      };
+    });
+  </script>
+</head>
+<body ng-app="my-app">
+
+  <header class="header" ng-controller="logoutCtrl">
+    <a href="#" class="logo"><img src="../../Images/mollafuel.png" alt=""></a>
+    <nav class="nav-items">
+      <a href="#">Dashboard</a>
+      <a href="profile.html">Profile</a>
+      <a class="active" href="Editprofile.html">Edit Profile</a>
+      <a href="AllProfie.html">Admins detail</a>
+      <a href="Location.html">Location</a>
+      <a href="Message.html">Message</a>
+      <input type="submit" value="Logout" ng-click="load()">
+    </nav>
+  </header>
+
+  <div ng-controller="AdminCtrl">
+    <form ng-submit="updateAdmin()">
+      <input type="text" ng-model="admin.username" placeholder="Username" required>
+      <input type="text" ng-model="admin.name" placeholder="Name" required>
+      <input type="email" ng-model="admin.email" placeholder="Email" required>
+      <input type="password" ng-model="admin.password" placeholder="Password" required>
+      <button type="submit">Update Admin</button>
+    </form>
+  </div>
+  
+</body>
+</html>
